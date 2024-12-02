@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Changer</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+      .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .image-container img {
+        height: 500px;
+        border: 2px solid blue;
+        border-radius: 2px;
+      }
+      .image-container h2 {
+        background-color: yellow;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image changer</h1>
+    <div class="image-container">
+      <img
+        src="https://cdn.pixabay.com/photo/2023/05/02/18/13/london-7965770_640.jpg"
+        alt=""
+      />
+      <h2>London</h2>
+    </div>
+    <script>
+      let img = document.querySelector("img");
+      let h2 = document.querySelector("h2");
+      let prev = img.src;
+      let prevText = h2.innerText;
+      img.addEventListener("mouseover", () => {
+        img.src =
+          "https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_640.jpg";
+        h2.innerText = "Paris";
+        img.style.border = "2px solid yellow";
+      });
+      img.addEventListener("mouseleave", () => {
+        img.src = prev;
+        //"https://cdn.pixabay.com/photo/2023/05/02/18/13/london-7965770_640.jpg";
+
+        h2.innerText = prevText;
+        img.style.border = "2px solid blue";
+      });
+    </script>
+  </body>
+</html>
